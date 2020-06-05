@@ -12,8 +12,8 @@ var myShakeEvent = new Shake({
 myShakeEvent.start();
 
 
-if (typeof DeviceMotionEvent.requestPermission === 'function') {
-    DeviceMotionEvent.requestPermission()
+if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+    DeviceOrientationEvent.requestPermission()
       .then(permissionState => {
         if (permissionState === 'granted') {
             window.addEventListener('shake', shakeEventDidOccur, false);
