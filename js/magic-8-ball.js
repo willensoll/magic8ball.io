@@ -11,7 +11,19 @@ var myShakeEvent = new Shake({
 
 myShakeEvent.start();
 
-window.addEventListener('shake', shakeEventDidOccur, false);
+
+if (typeof DeviceMotionEvent.requestPermission === 'function') {
+    DeviceMotionEvent.requestPermission()
+      .then(permissionState => {
+        if (permissionState === 'granted') {
+            window.addEventListener('shake', shakeEventDidOccur, false);
+        }
+      })
+      .catch(console.error);
+    } else {
+        window.addEventListener('shake', shakeEventDidOccur, false);
+    }
+
 
 //function to call when shake occurs
 function shakeEventDidOccur () {
