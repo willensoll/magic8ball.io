@@ -5,7 +5,7 @@ const quoteArray = ["Love For All, Hatred For None", "Change the world by being 
 
 
 var myShakeEvent = new Shake({
-    threshold: 15, // optional shake strength threshold
+    threshold: 12, // optional shake strength threshold
     timeout: 1000 // optional, determines the frequency of event generation
 });
 
@@ -41,6 +41,14 @@ function shakeEventDidOccur () {
     }, 3000)
 }
 
+const currentInt = -1;
+
 function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
+    let newInt = Math.floor(Math.random() * Math.floor(max));
+    if (newInt === currentInt) {
+        getRandomInt(max)
+    } else {
+        currentInt = newInt
+    }
+    return currentInt;
   }
