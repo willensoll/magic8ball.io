@@ -15,12 +15,13 @@ document.getElementById("permission").addEventListener("click", () => {
           .then(permissionState => {
             if (permissionState === 'granted') {
                 window.addEventListener('shake', shakeEventDidOccur, false);
-                document.getElementById("permission").style.backgroundColor = 'green';
-                document.getElementById("permission").disabled = true;
+                document.getElementById("permission").remove()
+
             }
           })
           .catch(console.error);
         } else {
+            document.getElementById("permission").remove()
             window.addEventListener('shake', shakeEventDidOccur, false);
 
         }})
@@ -33,7 +34,6 @@ function shakeEventDidOccur () {
     document.getElementById('ball').style.background = "linear-gradient(237deg, #178a6d, #508a17, #c3632c, #2cc35a, #c32cb7, #e3ff00, #ff0000, #00ffeb)";
     document.getElementById('ball').style.backgroundSize = '1000% 1000%'
     document.getElementById('ball').style.animation = "rainbow 8s ease infinite";
-    document.getElementById("permission").remove()
     setTimeout(() => {
         document.getElementById('quote').innerText = quoteArray[getRandomInt(5)];
         document.getElementById('ball').style.animation = "";
