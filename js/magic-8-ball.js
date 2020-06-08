@@ -10,6 +10,7 @@ var myShakeEvent = new Shake({
 });
 
 document.getElementById("permission").addEventListener("click", () => {
+    shakeEventDidOccur();
     if (typeof DeviceOrientationEvent.requestPermission === 'function') {
         DeviceOrientationEvent.requestPermission()
           .then(permissionState => {
@@ -30,7 +31,9 @@ myShakeEvent.start();
 //function to call when shake occurs
 function shakeEventDidOccur () {
     //put your own code here etc.
-    document.getElementById('ball').style.animation = "bubble-anim 2s ease-out infinite";
+    document.getElementById('ball').style.background = "linear-gradient(237deg, #178a6d, #508a17, #c3632c, #2cc35a, #c32cb7, #e3ff00, #ff0000, #00ffeb)";
+    document.getElementById('ball').style.backgroundSize = '1000% 1000%'
+    document.getElementById('ball').style.animation = "rainbow 8s ease infinite";
     document.getElementById("permission").disabled = true;
     document.getElementById("permission").style.backgroundColor = 'green';
     setTimeout(() => {
