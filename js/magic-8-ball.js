@@ -27,8 +27,8 @@ myShakeEvent.start();
 //function to call when shake occurs
 function shakeEventDidOccur () {
     //put your own code here etc.
-    eight.innerText = "";
-    answer.innerText = quoteArray[getRandomInt(5)];
+    document.getElementById('eight').innerText = "";
+    document.getElementById('answer').innerText = quoteArray[getRandomInt(5)];
 }
 
 function getRandomInt(max) {
