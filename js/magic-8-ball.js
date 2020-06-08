@@ -9,20 +9,22 @@ var myShakeEvent = new Shake({
     timeout: 1000 // optional, determines the frequency of event generation
 });
 
+document.getElementById("permission").addEventListener("click", () => {
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+        DeviceOrientationEvent.requestPermission()
+          .then(permissionState => {
+            if (permissionState === 'granted') {
+                window.addEventListener('shake', shakeEventDidOccur, false);
+            }
+          })
+          .catch(console.error);
+        } else {
+            window.addEventListener('shake', shakeEventDidOccur, false);
+        }})
+
 myShakeEvent.start();
 
 
-if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-    DeviceOrientationEvent.requestPermission()
-      .then(permissionState => {
-        if (permissionState === 'granted') {
-            window.addEventListener('shake', shakeEventDidOccur, false);
-        }
-      })
-      .catch(console.error);
-    } else {
-        window.addEventListener('shake', shakeEventDidOccur, false);
-    }
 
 
 //function to call when shake occurs
