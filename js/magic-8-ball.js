@@ -9,7 +9,7 @@ var myShakeEvent = new Shake({
     timeout: 1000 // optional, determines the frequency of event generation
 });
 
-window.addEventListener('load', () => {
+document.addEventListener("permission").addEventListener("click", () => {
     if (typeof DeviceOrientationEvent.requestPermission === 'function') {
         DeviceOrientationEvent.requestPermission()
           .then(permissionState => {
@@ -20,18 +20,15 @@ window.addEventListener('load', () => {
           .catch(console.error);
         } else {
             window.addEventListener('shake', shakeEventDidOccur, false);
-        }
-    })
+        }})
 
 myShakeEvent.start();
-
-
-
 
 //function to call when shake occurs
 function shakeEventDidOccur () {
     //put your own code here etc.
-    alert(quoteArray[getRandomInt(5)]);
+    eight.innerText = "";
+    answer.innerText = quoteArray[getRandomInt(5)];
 }
 
 function getRandomInt(max) {
