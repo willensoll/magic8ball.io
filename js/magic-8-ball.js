@@ -15,11 +15,15 @@ document.getElementById("permission").addEventListener("click", () => {
           .then(permissionState => {
             if (permissionState === 'granted') {
                 window.addEventListener('shake', shakeEventDidOccur, false);
+                document.getElementById("permission").style.backgroundColor = 'green';
+                document.getElementById("permission").disabled = true;
             }
           })
           .catch(console.error);
         } else {
             window.addEventListener('shake', shakeEventDidOccur, false);
+            document.getElementById("permission").style.backgroundColor = 'green';
+            document.getElementById("permission").disabled = true;
         }})
 
 myShakeEvent.start();
