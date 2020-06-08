@@ -9,7 +9,7 @@ var myShakeEvent = new Shake({
     timeout: 1000 // optional, determines the frequency of event generation
 });
 
-document.getElementById("permission").addEventListener("click", () => {
+document.addEventListener("DOMContentLoaded", () => {
     if (typeof DeviceOrientationEvent.requestPermission === 'function') {
         DeviceOrientationEvent.requestPermission()
           .then(permissionState => {
