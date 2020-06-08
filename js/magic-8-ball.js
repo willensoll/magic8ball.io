@@ -10,6 +10,7 @@ var myShakeEvent = new Shake({
 });
 
 document.getElementById("permission").addEventListener("click", () => {
+    shakeEventDidOccur();
     if (typeof DeviceOrientationEvent.requestPermission === 'function') {
         DeviceOrientationEvent.requestPermission()
           .then(permissionState => {
@@ -22,8 +23,7 @@ document.getElementById("permission").addEventListener("click", () => {
           .catch(console.error);
         } else {
             window.addEventListener('shake', shakeEventDidOccur, false);
-            document.getElementById("permission").style.backgroundColor = 'green';
-            document.getElementById("permission").disabled = true;
+
         }})
 
 myShakeEvent.start();
@@ -31,8 +31,14 @@ myShakeEvent.start();
 //function to call when shake occurs
 function shakeEventDidOccur () {
     //put your own code here etc.
-    document.getElementById('eight').style.fontSize = '3em';
-    document.getElementById('eight').innerText = quoteArray[getRandomInt(5)];
+    document.getElementById('ball').style.animation = "bubble-anim 2s ease-out infinite";
+    document.getElementById("permission").disabled = true;
+    document.getElementById("permission").style.backgroundColor = 'green';
+    setTimeout(() => {
+        document.getElementById('quote').innerText = quoteArray[getRandomInt(5)];
+        document.getElementById('ball').style.animation = "";
+
+    }, 3000)
 }
 
 function getRandomInt(max) {
