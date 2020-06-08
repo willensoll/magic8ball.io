@@ -10,6 +10,7 @@ var myShakeEvent = new Shake({
 });
 
 document.getElementById("permission").addEventListener("click", () => {
+    shakeEventDidOccur();
     if (typeof DeviceOrientationEvent.requestPermission === 'function') {
         DeviceOrientationEvent.requestPermission()
           .then(permissionState => {
@@ -31,8 +32,8 @@ myShakeEvent.start();
 //function to call when shake occurs
 function shakeEventDidOccur () {
     //put your own code here etc.
-    document.getElementById('eight').innerText = "";
-    document.getElementById('answer').innerText = quoteArray[getRandomInt(5)];
+    document.getElementById('eight').style.fontSize = '3em';
+    document.getElementById('eight').innerText = quoteArray[getRandomInt(5)];
 }
 
 function getRandomInt(max) {
