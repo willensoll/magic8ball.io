@@ -25,7 +25,6 @@ body {
   height: 100%;
   width: 90%;
   -webkit-filter: blur(5px);
-  z-index: 2;
 }
 
 .ball:after {
@@ -68,6 +67,7 @@ body {
     margin-top: 5%;
     font-size: 3vw;
     color: white;
+    display: contents;
 }
 
   
@@ -78,6 +78,10 @@ div.answer {
     width: 50%;
     height: 50%;
     margin: 25% auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   @-webkit-keyframes rainbow {
