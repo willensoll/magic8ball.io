@@ -10,7 +10,6 @@ var myShakeEvent = new Shake({
 });
 
 document.getElementById("permission").addEventListener("click", () => {
-    shakeEventDidOccur();
     if (typeof DeviceOrientationEvent.requestPermission === 'function') {
         DeviceOrientationEvent.requestPermission()
           .then(permissionState => {
