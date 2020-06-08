@@ -41,7 +41,7 @@ function shakeEventDidOccur () {
     }, 3000)
 }
 
-const currentInt = -1;
+let currentInt = -1;
 
 function getRandomInt(max) {
     let newInt = Math.floor(Math.random() * Math.floor(max));
