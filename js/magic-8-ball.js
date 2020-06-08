@@ -35,7 +35,7 @@ function shakeEventDidOccur () {
     document.getElementById('ball').style.backgroundSize = '1000% 1000%'
     document.getElementById('ball').style.animation = "rainbow 8s ease infinite";
     setTimeout(() => {
-        document.getElementById('quote').innerText = quoteArray[getRandomInt(5)];
+        document.getElementById('quote').innerText = quoteArray[getRandomInt(quoteArray.length)];
         document.getElementById('ball').style.animation = "";
 
     }, 3000)
